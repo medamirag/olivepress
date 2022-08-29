@@ -391,11 +391,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>1</td>
-        <td>منتصر</td>
-        <td>22565412</td>
-        <td><button (click)="setClient(1)" class="btn btn-primary">تفاصيل</button></td>
+      <tr *ngFor="let client of listClients">
+        <td>{{client.id}}</td>
+        <td>{{client.name}}</td>
+        <td>{{client.telephone}}</td>
+        <td><button (click)="setClient(client.id)" class="btn btn-primary">تفاصيل</button></td>
       </tr>
     </tbody>
   </table>
