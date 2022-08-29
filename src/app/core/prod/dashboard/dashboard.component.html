@@ -1,0 +1,42 @@
+<body  (click)="getTableActif()">
+    
+    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+      <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">معصرة البركة</a>
+      <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-nav">
+        <div class="nav-item text-nowrap">
+          <a class="nav-link px-3" href="#">خروج</a>
+        </div>
+      </div>
+    </header>
+    
+    <div class="container-fluid">
+      <div class="row">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+
+        <app-menu></app-menu>
+        </nav>
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+          <div *ngIf="tableActif!=4">
+
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+         <app-fiche-client></app-fiche-client>
+          </div>
+        </div>
+    
+    
+          <div class="table-responsive" >
+            <app-liste-document [tableActif]="tableActif" [idClient]="idClient"></app-liste-document>
+          <div *ngIf="tableActif!=4">
+            <app-resume-document ></app-resume-document>
+          </div>
+        </div>
+        </main>
+      </div>
+    </div>
+    
+    
+    
+    </body>
