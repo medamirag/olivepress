@@ -14,4 +14,9 @@ baseURL=environment.baseUrl;
   getAllClients():Observable<Client[]>{
 return this.httpClient.get<Client[]>(this.baseURL+"clients")
   }
+
+  getClient(id:number):Observable<Client>{
+    return this.httpClient.get<Client>("http://localhost:3000/api/v0/client/"+id)
+  }
+
 }
