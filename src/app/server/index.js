@@ -1,7 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
+const bodyp =require('body-parser')
 app.use(cors());
+app.use(bodyp.json())
 let clients =
 [
     { id: 1, name: 'Mohamed', telephone: '2568742' },
@@ -18,7 +20,7 @@ app.get('/api/v0/client/:id', (req,res) => {
 app.get('/api/v0/clients', (req, res) => {
     res.send( clients )
 });
-data = [
+let data = [
     {
         code: "R02",
         type: "F",
@@ -223,7 +225,11 @@ app.get('/api/v0/documents/:idClient', (req, res) => {
 API affichage de band de reception d'un client
 
 */
+
 app.get('/api/v0/documents/:idClient/:typedoc', (req, res) => {
+ console.log(req.body);
+ 
+ 
     i = 0
     data2 = [
         {
@@ -275,5 +281,12 @@ app.get('/api/v0/documents/:idClient/:typedoc', (req, res) => {
     res.send([data2,{somme:somme}])
 
 });
+
+app.post('/api/v0/document/add',(req,res)=>{
+    console.log(req.body,"test");
+    data.push(req.body)
+    res.send({'message':'ok'})
+
+})
 
 app.listen(3000);

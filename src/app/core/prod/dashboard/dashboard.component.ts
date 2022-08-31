@@ -9,8 +9,9 @@ export class DashboardComponent implements OnInit {
   tableActif:any
   idClient:any
   constructor() { 
+   
     this.tableActif=sessionStorage.getItem("tableActif")
-    this.idClient=sessionStorage.getItem("idClient")
+    this.idClient=sessionStorage.getItem("idClient");
 
   }
 

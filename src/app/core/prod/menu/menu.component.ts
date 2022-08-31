@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {  Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -7,14 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
   idClient :any
-  constructor() {
+  constructor(private route:Router) {
     this.idClient=sessionStorage.getItem("idClient")
    }
 
   ngOnInit(): void {
   }
   setSessionStorage(num:string){
-    sessionStorage.setItem("tableActif",num)
+    sessionStorage.setItem("tableActif",num);
+    if(num!=='4'){
+    this.route.navigate(['/press/'+this.idClient])
+    }else
+    {
+      this.route.navigate(['/press'])
+
+    }
   }
 
 }

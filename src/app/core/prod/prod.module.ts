@@ -9,6 +9,13 @@ import { ResumeDocumentComponent } from './resume-document/resume-document.compo
 import { ListeClientsComponent } from './liste-clients/liste-clients.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BonReceptionComponent } from './liste-document/bon-reception/bon-reception.component';
+import { AddDocumentComponent } from './liste-document/add-document/add-document.component';
+
+import { AppModule } from 'src/app/app.module';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+
 
 
 @NgModule({
@@ -19,11 +26,15 @@ import { BonReceptionComponent } from './liste-document/bon-reception/bon-recept
     ResumeDocumentComponent,
     ListeClientsComponent,
     DashboardComponent,
-    BonReceptionComponent
+    BonReceptionComponent,
+    AddDocumentComponent
   ],
   imports: [
     CommonModule,
-    ProdRoutingModule
+    ProdRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    RouterModule
   ]
 })
 export class ProdModule { }
